@@ -16,6 +16,8 @@ table,td,th
 }
 #head{
     color: red;
+    text-decoration-color:black;
+    text-decoration-line:underline
 }
 
 td,th{
