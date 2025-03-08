@@ -4,15 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'style.css')}}">
 </head>
 <body>
-    <h1>---Wish List---</h1>
+    <h1 id="head">TO-DO-LIST</h1>
 
-    <div>
+    <div id="top-div">
         <form action="/" method="post">
             <input type="text" id="item" name="item">
             <input type="submit" value="Add" name="addButton">
+
         </form>
+    </div>
+            {% if wishlist|length < 1 %}
+            <h4 id="empty_id">Add Your To-DO-List</h4>
+            {% else %}
+            <table>
+                <tr>
+                    <th>ITEMs</th>
+                    <th>ACTIONs</th>
+                </tr>
+                {% for item in wishlist%}
+
+                <tr>
+                    <td id="list">{{item}}</td>
+                    <td id="list1"><a href="{{ url_for('delete_item', item=item) }}"  name="delete" class="btn" value="{{item}}">delete</a></td>
+                </tr>
+                {% endfor %}>
+
+            </table>
+            {% endif %}
     </div>
 </body>
 </html>
